@@ -1,3 +1,7 @@
+const Account = require('./accounts-model');
+const db = require('../../data/db-config');
+const accountSchema = require('../schemas/index');
+
 exports.checkAccountPayload = (req, res, next) => {
   // DO YOUR MAGIC
   // Note: you can either write "manual" validation logic
