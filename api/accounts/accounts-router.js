@@ -46,7 +46,8 @@ async (req, res, next) => {
 
 router.delete('/:id', md.checkAccountId, async (req, res, next) => {
   try {
-    //CODE HERE
+    const deleted = await Account.deleteById(req.params.id)
+    res.status(200).json(deleted)
   } catch (err) {
     next(err)
   }
