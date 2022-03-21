@@ -37,7 +37,8 @@ md.checkAccountPayload,
 md.checkAccountNameUnique,
 async (req, res, next) => {
   try {
-    //CODE HERE
+    const updated = await Account.updateById(req.params.id, req.body)
+    res.status(200).json(updated);
   } catch (err) {
     next(err)
   }
