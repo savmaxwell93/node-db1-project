@@ -1,13 +1,17 @@
+const db = require('../../data/db-config');
+
 const getAll = () => {
-  // DO YOUR MAGIC
+  // SELECT * FROM accounts;
+  return db('accounts');
 }
 
 const getById = id => {
-  // DO YOUR MAGIC
+  // SELECT * FROM accounts WHERE id = id;
+  return db('accounts').where('id', id).first();
 }
 
 const create = account => {
-  // DO YOUR MAGIC
+  // INSERT INTO accounts (name, budget) VALUES (account.name, account.budget)
 }
 
 const updateById = (id, account) => {
