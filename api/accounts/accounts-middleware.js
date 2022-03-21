@@ -1,6 +1,6 @@
 const Account = require('./accounts-model');
 const db = require('../../data/db-config');
-const accountSchema = require('../schemas/index');
+const { accountSchema } = require('../schemas/index');
 
 exports.checkAccountPayload = async (req, res, next) => {
   try {

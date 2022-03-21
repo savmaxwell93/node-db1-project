@@ -19,15 +19,23 @@ router.get('/:id', md.checkAccountId, async (req, res, next) => {
   }
 })
 
-router.post('/', (req, res, next) => {
+router.post('/',
+md.checkAccountPayload,
+md.checkAccountNameUnique,
+async (req, res, next) => {
   try {
-    //CODE HERE
+    const newAccount = await Account.create(req.body)
+    res.status(201).json(newAccount)
   } catch (err) {
     next(err)
   }
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id',
+md.checkAccountId,
+md.checkAccountPayload,
+md.checkAccountNameUnique,
+async (req, res, next) => {
   try {
     //CODE HERE
   } catch (err) {
@@ -35,7 +43,7 @@ router.put('/:id', (req, res, next) => {
   }
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', md.checkAccountId, async (req, res, next) => {
   try {
     //CODE HERE
   } catch (err) {
